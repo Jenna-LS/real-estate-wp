@@ -1,0 +1,15 @@
+wp-config.php
+wp-config-sample.php
+wp-content/uploads/
+wp-content/languages/
+wp-content/upgrade/*
+wp-content/cache/*
+wp-content/cache/supercache/*
+wp-content/mu-plugins/*
+
+
+# wp core (as of 3.4.1)
+/wp-content/debug.log
+
+
+wp-content/themes/*
