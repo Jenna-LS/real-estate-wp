@@ -1,5 +1,4 @@
 wp-config.php
-wp-config-sample.php
 wp-content/uploads/
 wp-content/languages/
 wp-content/upgrade/*
@@ -13,3 +12,5 @@ wp-content/mu-plugins/*
 
 
 wp-content/themes/*
+!wp-content/themes/understrap
+!wp-content/themes/understrap-real-estate
