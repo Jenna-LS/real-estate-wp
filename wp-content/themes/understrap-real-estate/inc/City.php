@@ -113,4 +113,21 @@ class City
 
         return new WP_Query($args);
     }
+
+    public static function get_cities_array($count = null): array
+    {
+        $cities_query = self::get_cities($count);
+        $cities = [];
+        
+        if ($cities_query->have_posts()) {
+            $cities = array_map(function($city) {
+                return [
+                    'id' => $city->ID,
+                    'name' => $city->post_title
+                ];
+            }, $cities_query->posts);
+        }
+
+        return $cities;
+    }
 }

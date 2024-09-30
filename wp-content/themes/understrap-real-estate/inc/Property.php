@@ -15,12 +15,15 @@ class Property
 
     public function __construct()
     {
+        new PropertyForm();
+
+        // actions
         add_action('init', [$this, 'register_post_type']);
-
-        add_shortcode('property_info', [$this, 'info_shortcode']);
-
         add_action('add_meta_boxes', [$this, 'create_city_metabox']);
         add_action('save_post', [$this, 'save_city_metadata']);
+
+        // shortcodes
+        add_shortcode('property_info', [$this, 'info_shortcode']);
     }
 
     public function register_post_type(): void
@@ -183,6 +186,25 @@ class Property
         }
 
         return new WP_Query($args);
+    }
+
+    public static function get_types($as_array = false)
+    {
+        $types = get_terms([
+            'taxonomy' => self::TYPE_TAXONOMY,
+            'hide_empty' => false,
+        ]);
+
+        if ($as_array) {
+            return array_map(function($type) {
+                return [
+                    'id' => $type->term_id,
+                    'name' => $type->name
+                ];
+            }, $types);
+        }
+
+        return $types;
     }
 
 	public static function get_property_description(): mixed

@@ -13,6 +13,7 @@ define('THEME_DIRECTORY_URI',  get_stylesheet_directory_uri());
 // TODO: implement autoloader
 include_once THEME_DIRECTORY . '/inc/Theme.php';
 include_once THEME_DIRECTORY . '/inc/Property.php';
+include_once THEME_DIRECTORY . '/inc/PropertyForm.php';
 include_once THEME_DIRECTORY . '/inc/City.php';
 
 (new Theme)->run();
